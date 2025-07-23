@@ -59,6 +59,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', [App\Http\Controllers\ModulosController::class, 'index'])->name('modulos');
         Route::get('/servicios', [App\Http\Controllers\ModulosController::class, 'servicios'])->name('servicios');
         Route::get('/calificar', [App\Http\Controllers\ModulosController::class, 'calificar'])->name('calificar');
+        Route::get('/{servicio}/llamar', [App\Http\Controllers\ModulosController::class, 'llamar'])->name('llamar');
     });
 
     Route::prefix('turnos')->group(function () {

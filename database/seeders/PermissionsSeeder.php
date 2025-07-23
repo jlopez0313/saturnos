@@ -29,6 +29,10 @@ class PermissionsSeeder extends Seeder
                 'name' => 'generar_turno',
                 'guard_name' => 'web',
             ],
+            [
+                'name' => 'auditoria',
+                'guard_name' => 'web',
+            ],
         ]);
     }
 }

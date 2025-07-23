@@ -30,6 +30,11 @@ class Servicios extends Model
         return $objeto['estado'] ?? 'NA';
     }
 
+    public function requisitos() {
+        return $this->hasMany(Requisitos::class, 'servicios_id');
+
+    }
+
     public function turnos() {
         return $this->hasMany(Turnos::class, 'servicios_id');
 

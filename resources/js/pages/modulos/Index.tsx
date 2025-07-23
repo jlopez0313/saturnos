@@ -4,7 +4,7 @@ import { confirmDialog, showAlert } from '@/plugins/sweetalert';
 import { BreadcrumbItem } from '@/types';
 import { Head, router, usePage } from '@inertiajs/react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -16,9 +16,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 export default function Index({ auth, servicios, servicio }: any) {
     const currentUrl = usePage().url;
     const { flash }: any = usePage().props;
-    const [id, setId] = useState<number | null>(null);
-    const [data, setData] = useState([]);
-    const [show, setShow] = useState(false);
+
+    const onCall = (servicio: number) => {
+        router.visit(`/modulos/${servicio}/llamar`);
+    }
 
     const onHome = () => {
         window.location.href = '/modulos';
@@ -57,7 +58,7 @@ export default function Index({ auth, servicios, servicio }: any) {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Sedes" />
+            <Head title="Ventanilla" />
 
             <div className="px-8 py-6">
                 <div className="overflow-x-auto">
@@ -88,7 +89,7 @@ export default function Index({ auth, servicios, servicio }: any) {
                         <tbody>
                             <tr className="focus-within:bg-gray-100 hover:bg-gray-100">
                                 <td className="border px-6 pt-5 pb-4 text-center">
-                                    <Button variant={'outline'} className="mb-9" onClick={() => onLimpiarServicio()}>
+                                    <Button variant={'outline'} className="mb-9" onClick={() => onCall( servicio.id )}>
                                         {' '}
                                         Llamar Turno{' '}
                                     </Button>
@@ -112,7 +113,7 @@ export default function Index({ auth, servicios, servicio }: any) {
                                                             {item.servicio}
                                                         </td>
                                                         <td className="border px-6 pt-5 pb-4 text-center">
-                                                            <Button variant={'outline'} onClick={() => onLimpiarServicio()}>
+                                                            <Button variant={'outline'} onClick={() => onCall( item.id )}>
                                                                 {' '}
                                                                 Llamar Turno{' '}
                                                             </Button>

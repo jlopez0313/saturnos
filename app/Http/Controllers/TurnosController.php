@@ -18,7 +18,8 @@ class TurnosController extends Controller
      */
     public function index()
     {
-        $servicios = Servicios::where('sedes_id', \Auth::user()->sede->id)
+        $servicios = Servicios::with('requisitos')
+            ->where('sedes_id', \Auth::user()->sede->id)
             ->get();
 
         return Inertia::render('turnos/Index', [

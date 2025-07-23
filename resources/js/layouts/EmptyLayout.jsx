@@ -1,8 +1,8 @@
 
 export default function ({ children }) {
     return (
-        <>
-            {children}
-        </>
+        <div className="flex flex-col items-center h-full overflow-hidden">
+                {children}
+        </div>
     );
 }

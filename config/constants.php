@@ -21,4 +21,26 @@ return [
             'valor' => 'NO'
         ]
     ],
+    'TURNO_ESTADOS' => [
+        [
+            'id' => 'P',
+            'valor' => 'Pendiente'
+        ],
+        [
+            'id' => 'L',
+            'valor' => 'Llamando'
+        ],
+        [
+            'id' => 'D',
+            'valor' => 'Despistado'
+        ],
+        [
+            'id' => 'A',
+            'valor' => 'Atendiendo'
+        ],
+        [
+            'id' => 'F',
+            'valor' => 'Finalizado'
+        ]
+    ],
 ];

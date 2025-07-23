@@ -9,6 +9,7 @@ use App\Http\Resources\EncuestasCollection;
 use App\Models\Ventanillas;
 use App\Models\Servicios;
 use App\Models\Encuestas;
+use App\Models\Turnos;
 use App\Models\User;
 use Inertia\Inertia;
 
@@ -57,6 +58,22 @@ class ModulosController extends Controller
         return Inertia::render('modulos/Calificar', [
             'filters' => Peticion::all('search', 'trashed'),
             'pregunta' => $pregunta,
+        ]);
+    }
+
+    public function llamar(String $id)
+    {
+        $turno = Turnos::with('servicio')
+            ->where('servicios_id', $id)
+            ->first();
+
+        $turno->update([
+            'estado' => 'L'
+        ]);
+
+        return Inertia::render('modulos/Llamar', [
+            'filters' => Peticion::all('search', 'trashed'),
+            'turno' => $turno,
         ]);
     }
 

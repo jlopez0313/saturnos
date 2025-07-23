@@ -68,7 +68,7 @@ export default function Index({ auth, marquesina, sedes }: any) {
     };
 
     const onGoBack = () => {
-        router.get('/servicios');
+        router.get('/marquesinas');
     };
 
     useEffect(() => {

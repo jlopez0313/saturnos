@@ -68,7 +68,7 @@ export default function Index({ auth, encuesta, sedes }: any) {
     };
 
     const onGoBack = () => {
-        router.get('/servicios');
+        router.get('/encuestas');
     };
 
     useEffect(() => {

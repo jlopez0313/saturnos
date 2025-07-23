@@ -43,6 +43,16 @@ export const Form = ({ servicio, onClose }: any) => {
         <div className="pt-6 pb-12">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <form onSubmit={submit}>
+                    {servicio.requisitos?.length && (
+                        <div className="mb-5">
+                            <ul>
+                                {servicio.requisitos.map((item: any, idx: number) => {
+                                    return <li key={idx}> {item.requisito}</li>;
+                                })}
+                            </ul>
+                        </div>
+                    )}
+
                     <div className="grid grid-cols-1 gap-4">
                         <div>
                             <Label htmlFor="departamentos_id"> {servicio.texto_documento} </Label>

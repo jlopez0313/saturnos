@@ -20,8 +20,7 @@ class TurnosResource extends JsonResource
         
         return [
             'id' => $this->id,
-            'servicio' => $this->servicio,
-            'documento' => $this->documento,
+            'turno' => $this->turno,
         ];
     }
 }

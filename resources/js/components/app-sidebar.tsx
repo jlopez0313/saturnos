@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BarChart3, Building2, Globe, Headphones, LayoutDashboard, MapPin, MonitorCheck, MonitorPlay, ScrollText, Settings, Ticket, Tv, Users } from 'lucide-react';
+import { BarChart3, Building2, ChartBarIcon, Globe, Headphones, LayoutDashboard, MapPin, MonitorCheck, MonitorPlay, ScrollText, Search, Settings, ShieldCheckIcon, Ticket, Tv, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -67,10 +67,23 @@ const mainNavItems: NavItem[] = [
         href: '/turnos',
         icon: Ticket,
     },{
+        title: 'Consultar',
+        href: '/consultar',
+        icon: Search,
+    },{
+        title: 'Auditoría',
+        permiso: 'auditoria',
+        href: '/consultar',
+        icon: ShieldCheckIcon,
+    },{
         title: 'Pantalla',
         permiso: 'pantalla',
         href: '/pantalla',
         icon: Tv,
+    },{
+        title: 'Tablero de Información',
+        href: '/tablero',
+        icon: ChartBarIcon,
     },
 ];
 
