@@ -13,9 +13,26 @@ class Servicios extends Model
 
     protected $table = 'servicios';
     protected $guarded = [];
+    protected $append = ['estado_label'];
 
     public function sede() {
         return $this->belongsTo(Sedes::class, 'sedes_id');
     } 
+
+    public function getEstadoLabelAttribute() {
+        $lista = config('constants.estados');
+        $valorEstado = $this->estado ? 'A' : 'I';
+
+        $objeto = \Arr::first($lista, function($val, $key) use ($valorEstado) {
+            return $val['id'] == $valorEstado;
+        });
+
+        return $objeto['estado'] ?? 'NA';
+    }
+
+    public function turnos() {
+        return $this->hasMany(Turnos::class, 'servicios_id');
+
+    }
 
 }

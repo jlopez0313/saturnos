@@ -7,18 +7,19 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collap
 export const NavMenuSubItem = ({ item }: { item: NavItem }) => {
     const page = usePage();
 
-    const isChildOpen = ( item: NavItem ) => {
-        return false
+    const isChildOpen = (item: NavItem) => {
+        if (item.children?.some((child) => child.href === page.url)) {
+            return true;
+        }
+
+        return false;
         /*
         console.log(  item.title )
-        if ( item.children?.some((child) => child.href === page.url ) ) {
-            console.log('existe')
-            return true
-        } else {
+         else {
             item.children?.forEach( child => isChildOpen( child ) )
         }
         */
-    }
+    };
 
     return (
         <Collapsible key={item.title} asChild defaultOpen={isChildOpen(item)} className="group/collasible">

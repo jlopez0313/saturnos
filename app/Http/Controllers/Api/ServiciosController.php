@@ -17,7 +17,7 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-        $servicio = Servicios::create( $request->except('departamentos_id') );
+        $servicio = Servicios::create( $request->except('departamentos_id', 'ciudades_id') );
         // return new ServiciosResource( $servicio );
     }
 
@@ -26,6 +26,7 @@ class ServiciosController extends Controller
      */
     public function show(Servicios $servicio)
     {
+        $servicio->load('sede.ciudad.departamento');
         return new ServiciosResource( $servicio );
     }
 
@@ -34,7 +35,7 @@ class ServiciosController extends Controller
      */
     public function update(Request $request, Servicios $servicio)
     {
-        $servicio->update( $request->except('departamentos_id') );
+        $servicio->update( $request->except('departamentos_id', 'ciudades_id') );
     }
 
     /**

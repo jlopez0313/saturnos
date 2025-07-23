@@ -51,7 +51,7 @@ export default function Index({ auth, lista }: any) {
                     if (remainingItems === 0 && currentPage > 1) {
                         router.visit(`/departamentos?page=${currentPage - 1}`);
                     } else {
-                        router.visit(`departamentos?page=${currentPage}`);
+                        router.visit(`/departamentos?page=${currentPage}`);
                     }
                 },
                 onError: () => showAlert('error', 'Error al eliminar')

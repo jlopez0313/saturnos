@@ -19,7 +19,8 @@ class ServiciosController extends Controller
         return Inertia::render('servicios/Index', [
             'filters' => Peticion::all('search', 'trashed'),
             'lista' => Servicios::with('sede.ciudad.departamento')
-                ->paginate(),
+                ->paginate()
+                ->through(fn ($servicio) => $servicio->append('estado_label')),
         ]);
     }
 

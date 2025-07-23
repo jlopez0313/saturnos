@@ -26,6 +26,7 @@ class SedesController extends Controller
      */
     public function show(Sedes $sede)
     {
+        $sede->load('ciudad.departamento');
         return new SedesResource( $sede );
     }
 

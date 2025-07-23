@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class Serviciosollection extends ResourceCollection
+class RequisitosCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -20,16 +20,8 @@ class Serviciosollection extends ResourceCollection
         
         return $this->collection->map->only(
             'id',
-            'sede',
-            'codigo',
-            'requiere_documento',
-            'tipo_documento',
-            'texto_documento',
-            'horario_inicial',
-            'horario_final',
-            'duracion',
-            'prioritario',
-            'estado',
+            'servicio',
+            'requisito',
         );
     }
 }

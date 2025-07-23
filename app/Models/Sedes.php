@@ -16,6 +16,6 @@ class Sedes extends Model
 
     public function ciudad() {
         return $this->belongsTo(Ciudades::class, 'ciudades_id');
-    } 
+    }
 
 }

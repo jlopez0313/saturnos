@@ -22,6 +22,7 @@ class ServiciosResource extends JsonResource
             'id' => $this->id,
             'sede' => $this->sede,
             'codigo' => $this->codigo,
+            'servicio' => $this->servicio,
             'requiere_documento' => $this->requiere_documento,
             'tipo_documento' => $this->tipo_documento,
             'texto_documento' => $this->texto_documento,
@@ -30,6 +31,7 @@ class ServiciosResource extends JsonResource
             'duracion' => $this->duracion,
             'prioritario' => $this->prioritario,
             'estado' => $this->estado,
+            'estado_label' => $this->estado_label,
         ];
     }
 }

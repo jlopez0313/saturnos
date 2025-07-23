@@ -97,12 +97,12 @@ export const Form = ({ id, onReload, onClose }: any) => {
         const onGetItem = async () => {
             if (!id) return;
 
-            const { data: response } = await axios.get(route('sedes.show', id));
+            const { data: response } = await axios.get(route('servicios.show', id));
             const item = response.data;
 
             setData({
-                departamentos_id: item.ciudad?.departamento?.id.toString() ?? '',
-                ciudades_id: item.ciudad?.id.toString() ?? '',
+                departamentos_id: item.sede?.ciudad?.departamento?.id.toString() ?? '',
+                ciudades_id: item.sede?.ciudad?.id.toString() ?? '',
                 sedes_id: item.sede?.id.toString() ?? '',
                 codigo: item.codigo,
                 servicio: item.servicio,
@@ -367,6 +367,7 @@ export const Form = ({ id, onReload, onClose }: any) => {
                             <Label htmlFor="horario_final"> Horario Final </Label>
 
                             <Input
+                                min={data.horario_inicial}
                                 type="time"
                                 autoFocus
                                 id="horario_final"
@@ -381,16 +382,17 @@ export const Form = ({ id, onReload, onClose }: any) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="duracion"> Duración por turno </Label>
+                            <Label htmlFor="duracion"> Duración en minutos por turno </Label>
 
                             <Input
+                                min={1}
                                 type="number"
                                 autoFocus
                                 id="duracion"
                                 name="duracion"
                                 required
                                 value={data.duracion}
-                                placeholder="Duración por turno"
+                                placeholder="Duración en minutos por turno"
                                 onChange={(e) => setData('duracion', e.target.value)}
                             />
 

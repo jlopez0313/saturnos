@@ -51,7 +51,7 @@ export default function Index({ auth, lista }: any) {
                     if (remainingItems === 0 && currentPage > 1) {
                         router.visit(`/sedes?page=${currentPage - 1}`);
                     } else {
-                        router.visit(`sedes?page=${currentPage}`);
+                        router.visit(`/sedes?page=${currentPage}`);
                     }
                 },
                 onError: () => showAlert('error', 'Error al eliminar')
